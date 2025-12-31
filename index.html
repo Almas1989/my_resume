@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almas Maksutbekov - Resume</title>
+    <style>
+        :root {
+            /* DARK IDE THEME */
+            --bg-sidebar: #1e1e1e;
+            --bg-main: #252526;
+            --text-main: #e0e0e0;
+            --text-muted: #aab2b8;
+            --accent: #4ec9b0;    /* Teal */
+            --entity: #9cdcfe;    /* Light Blue */
+            --string: #ce9178;    /* Orange */
+            --keyword: #569cd6;   /* Blue */
+            --border: #3e3e42;
+        }
+
+        * {
+            box-sizing: border-box;
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page {
+            width: 210mm;
+            height: 296.5mm; /* A4 */
+            display: grid;
+            grid-template-columns: 31% 69%;
+            background-color: var(--bg-main);
+            overflow: hidden;
+        }
+
+        /* --- SIDEBAR (LEFT) --- */
+        .sidebar {
+            background-color: var(--bg-sidebar);
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px; /* Fixed gap between sections */
+            border-right: 1px solid var(--border);
+        }
+
+        .sidebar-section h3 {
+            color: #fff;
+            font-size: 13px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 5px;
+            margin: 0 0 10px 0;
+            letter-spacing: 0.5px;
+        }
+
+        /* CONTACTS */
+        .contact-list { list-style: none; padding: 0; margin: 0; }
+        .contact-list li {
+            margin-bottom: 8px; /* Compact spacing */
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+        .contact-list a { color: var(--text-main); text-decoration: none; }
+
+        /* SKILLS */
+        .skill-group { margin-bottom: 15px; }
+        .skill-label {
+            color: var(--entity);
+            font-size: 11px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+        .tag {
+            background-color: #2d2d2d;
+            border: 1px solid #3e3e3e;
+            color: var(--string);
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 10.5px;
+            font-family: 'Consolas', monospace;
+        }
+
+        /* EDUCATION & CERT */
+        .edu-item { margin-bottom: 12px; font-size: 11px; }
+        .edu-degree { color: #fff; font-weight: 600; margin-bottom: 2px; display: block;}
+        .edu-school { color: var(--text-muted); font-style: italic; }
+        
+        .cert-item {
+            font-size: 10.5px;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* --- MAIN CONTENT (RIGHT) --- */
+        .main {
+            padding: 35px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Stack from top */
+            gap: 20px; /* Natural gap between big blocks */
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 30px;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .role-header {
+            color: var(--accent);
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .summary-text {
+            font-size: 11.5px;
+            line-height: 1.5;
+            color: var(--text-muted);
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            color: var(--keyword);
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .job-block { margin-bottom: 20px; } /* Space between jobs */
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 8px;
+            border-bottom: 1px dashed #3a3a3a;
+            padding-bottom: 3px;
+        }
+
+        .company { color: #fff; font-size: 15px; font-weight: bold; }
+        .job-title { color: var(--accent); font-size: 13px; font-weight: 600; }
+        .dates { color: var(--text-muted); font-family: 'Consolas', monospace; font-size: 11px; }
+
+        ul { margin: 0; padding-left: 18px; }
+        li {
+            font-size: 11.5px;
+            line-height: 1.45; /* Tighter line height */
+            color: var(--text-main);
+            margin-bottom: 5px; /* Tighter bullet spacing */
+        }
+        li::marker { color: var(--keyword); font-size: 11px; }
+
+        @page { size: A4; margin: 0; }
+        @media print { body { background: none; } }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+        <aside class="sidebar">
+            
+            <div class="sidebar-section">
+                <h3>Contacts</h3>
+                <ul class="contact-list">
+                    <li>📍 Almaty, Kazakhstan</li>
+                    <li>📞 +7 (701) 024-3525</li>
+                    <li>✉️ <a href="mailto:maksutbekovalmas@gmail.com">maksutbekovalmas@gmail.com</a></li>
+                    <li>🔗 <a href="https://www.linkedin.com/in/almas89/">in/almas89</a></li>
+                    <li>🐙 <a href="https://github.com/Almas1989">github.com/Almas1989</a></li>
+                    <li>✈️ <a href="https://t.me/adults_only_20">@adults_only_20</a></li>
+                    <li>🌐 <a href="https://almas-1989.carrd.co">almas-1989.carrd.co</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Tech Stack</h3>
+                
+                <div class="skill-group">
+                    <span class="skill-label">Languages & Core</span>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Oracle PL/SQL</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Bash</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <span class="skill-label">Big Data</span>
+                    <div class="tags">
+                        <span class="tag">Spark</span>
+                        <span class="tag">PySpark</span>
+                        <span class="tag">Kafka</span>
+                        <span class="tag">Hadoop</span>
+                        <span class="tag">NiFi</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <span class="skill-label">Databases & Cloud</span>
+                    <div class="tags">
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">ClickHouse</span>
+                        <span class="tag">BigQuery</span>
+                        <span class="tag">Snowflake</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <span class="skill-label">Tools & DevOps</span>
+                    <div class="tags">
+                        <span class="tag">Airflow</span>
+                        <span class="tag">dbt</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">Jira</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <span class="skill-label">Python Libs</span>
+                    <div class="tags">
+                        <span class="tag">Pandas</span>
+                        <span class="tag">NumPy</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">SQLAlchemy</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Education</h3>
+                <div class="edu-item">
+                    <span class="edu-degree">Master, Economics & Finance</span>
+                    <span class="edu-school">Zhambyl Hum-Tech Univ.</span>
+                    <div style="color:var(--keyword); font-size:10.5px; margin-top:2px;">2013 - 2014</div>
+                </div>
+                <div class="edu-item">
+                    <span class="edu-degree">Bachelor, Management</span>
+                    <span class="edu-school">Narxoz University</span>
+                    <div style="color:var(--keyword); font-size:10.5px; margin-top:2px;">2007 - 2011</div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Certificates</h3>
+                <span class="cert-item">• PL/SQL Bootcamp (2025)</span>
+                <span class="cert-item">• Python Core (2025)</span>
+                <span class="cert-item">• Telegram Bots (2025)</span>
+                <span class="cert-item">• Google Data Analytics (2024)</span>
+                <span class="cert-item">• Power BI Complete (2021)</span>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div>
+                <header>
+                    <h1>Almas Maksutbekov</h1>
+                    <div class="role-header">AI Data Engineer</div>
+                </header>
+                <div class="summary-text">
+                    Senior Data Engineer with 8+ years of experience designing and operating ETL/ELT pipelines, data models, and automated data workflows across enterprise and modern data platforms. Strong expertise in Python and advanced SQL, including Oracle PL/SQL development, query optimization, and database migrations. Hands-on experience with batch and streaming data processing technologies including Apache Spark, Kafka, Airflow, dbt, and Cloud Data Warehouses.
+                </div>
+            </div>
+
+            <div>
+                <div class="section-title">Professional Experience</div>
+
+                <div class="job-block">
+                    <div class="job-header">
+                        <div>
+                            <div class="company">AO Altyn Bank</div>
+                            <div class="job-title">Senior Data Engineer</div>
+                        </div>
+                        <div class="dates">Oct 2025 - Present</div>
+                    </div>
+                    <ul>
+                        <li>Designed and optimized ETL/ELT pipelines and analytical data models using Oracle PL/SQL, integrating with Apache Spark and Airflow for regulatory reporting.</li>
+                        <li>Automated and orchestrated data pipelines using Python and Airflow, improving data quality, observability, and audit controls.</li>
+                        <li>Built scalable batch data processing jobs with Apache Spark (PySpark) for large-volume financial datasets.</li>
+                        <li>Implemented data ingestion and near-real-time data flows using Apache Kafka, ensuring reliable fault-tolerant delivery.</li>
+                        <li>Developed and maintained Oracle PL/SQL packages, stored procedures, triggers, and scheduled jobs; handled performance tuning and incident resolution.</li>
+                    </ul>
+                </div>
+
+                <div class="job-block">
+                    <div class="job-header">
+                        <div>
+                            <div class="company">Kaspi Bank AO</div>
+                            <div class="job-title">Data Engineer</div>
+                        </div>
+                        <div class="dates">Feb 2025 - Jul 2025</div>
+                    </div>
+                    <ul>
+                        <li>Designed and maintained ETL pipelines and analytical data models using MySQL and Oracle PL/SQL for sales and risk management data.</li>
+                        <li>Led database migration from Oracle to MySQL, including schema redesign, type mapping, data validation, and reconciliation.</li>
+                        <li>Optimized complex SQL workloads (CTEs, multi-table joins, subqueries, window functions) and execution plans, significantly improving report latency.</li>
+                        <li>Automated reporting and BI delivery using SQL and Qlik Sense; developed interactive dashboards for business stakeholders.</li>
+                    </ul>
+                </div>
+
+                <div class="job-block">
+                    <div class="job-header">
+                        <div>
+                            <div class="company">Kazatomprom Subsidiaries</div>
+                            <div class="job-title">Finance Analyst</div>
+                        </div>
+                        <div class="dates">Nov 2016 - Feb 2025</div>
+                    </div>
+                    <ul>
+                        <li>Conducted financial reporting, budgeting, forecasting, and cost analysis for subsidiaries of the world's largest uranium mining company (Inkai LLP, etc.).</li>
+                        <li>Implemented data-driven frameworks for strategic decision-making and risk analysis.</li>
+                        <li>Managed financial data flows and consolidated reporting across multiple entities, ensuring accuracy and compliance with corporate standards.</li>
+                    </ul>
+                </div>
+            </div>
+
+             <div>
+                <div class="section-title" style="margin-bottom: 10px; font-size: 13px; border:none; padding:0;">Languages</div>
+                <div class="tags" style="gap: 15px;">
+                    <span class="tag" style="background: none; padding-left:0; font-size: 11.5px; color: #d4d4d4;">Kazakh (Native)</span>
+                    <span class="tag" style="background: none; font-size: 11.5px; color: #d4d4d4;">Russian (C2 Proficiency)</span>
+                    <span class="tag" style="background: none; font-size: 11.5px; color: #d4d4d4;">English (B2 Upper-Int)</span>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
